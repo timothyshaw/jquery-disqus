@@ -1,0 +1,22 @@
+.wrap {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.thread {
+  margin-bottom: 30px;
+  padding: 10px 30px 30px;
+}
+
+.active {
+  background-color: #eee;
+}
+
+button {
+  background-color: green;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+}
