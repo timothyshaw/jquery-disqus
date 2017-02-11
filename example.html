@@ -7,29 +7,67 @@
       margin: 0 auto;
       max-width: 1000px;
     }
+
+    .thread {
+      margin-bottom: 30px;
+      padding: 10px 30px 30px;
+    }
+
+    .active {
+      background-color: #eee;
+    }
+
+    button {
+      background-color: green;
+      border: 0;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 10px 20px;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Disqus will load below:</h1>
 
-    <div class="disqus-container" data-disqus-url="http://www.example.com/" data-disqus-id="some-unique-id" data-disqus-title="Example Title"></div>
+    <div id="thread-one" class="thread">
+      <h2>First thread</h2>
+      <div class="disqus-container" data-disqus-url="http://www.example.com/" data-disqus-id="some-unique-id" data-disqus-title="Example Title"></div>
+    </div>
+
+    <div id="thread-two" class="thread">
+      <h2>Second thread</h2>
+      <div class="disqus-container" data-disqus-url="http://www.anotherexample.com/" data-disqus-id="another-unique-id" data-disqus-title="Example Title"></div>
+    </div>
+
+    <div>
+      <button id="switch">Switch Thread</button>
+    </div>
   </div>
 
-  <!-- jQuery Disqus -->
-  <script>
-    var disqusShortName = 'example-shortname',
-        disqus_config;
-  </script>
-
+  <!-- jQuery is required -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous"></script>
-  <script src="jquery-disqus.js"></script>
 
+  <!-- jQuery Disqus -->
+  <script src="jquery-disqus.js"></script>
   <script>
+    // Set two global variables here, fill in with the short-name of your Disqus site, which you get in the Disqus admin.
+    var disqusShortName = 'example-shortname',
+        disqus_config;
+
+    // Initializing for first thread on page load. Can also use this if there's only one thread to load.
     $(document).ready(function() {
-      $('.disqus-container').trigger('loadDisqus');
+      $('#thread-one').addClass('active');
+      $('#thread-one .disqus-container').trigger('loadDisqus');
+    });
+
+    // Just an example of being able to switch threads.
+    $('#switch').on('click', function() {
+      $('.thread').toggleClass('active');
+      $('.thread.active .disqus-container').trigger('loadDisqus');
     });
   </script>
 </body>
