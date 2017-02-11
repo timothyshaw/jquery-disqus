@@ -19,6 +19,8 @@ The target where Disqus loads is an element with a class of "disqus-container". 
     
 Now, when you trigger a `loadDisqus` event on this element, it will load the thread. Eg: `$('.disqus-container').trigger('loadDisqus');`. You can have multiple `.disqus-container` elements on the page. Simply trigger `loadDisqus` on whichever one you want, and the thread element will be moved to it and reload with the data on the `.disqus-container`.
 
+See the example: http://htmlpreview.github.io/?https://github.com/timothyshaw/jquery-disqus/blob/master/example.html
+
 ## Feedback
 
 Hope you find this useful! Feel free to comment or suggest changes.
