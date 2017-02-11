@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Disqus Example</title>
+  <style type="text/css">
+    .wrap {
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Disqus will load below:</h1>
+
+    <div class="disqus-container" data-disqus-url="http://www.example.com/" data-disqus-id="some-unique-id" data-disqus-title="Example Title"></div>
+  </div>
+
+  <!-- jQuery Disqus -->
+  <script>
+    var disqusShortName = 'example-shortname',
+        disqus_config;
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+  <script src="jquery-disqus.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.disqus-container').trigger('loadDisqus');
+    });
+  </script>
+</body>
+</html>
